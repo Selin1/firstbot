@@ -5,7 +5,7 @@ from urllib import parse
 from urllib.request import urlopen
 from bs4 import BeautifulSoup as bs
 from discord.utils import get
-
+import os
 
 
 client = discord.Client()
@@ -61,8 +61,8 @@ async def on_message(message):
 
 
 
-
-
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token) 
 
 
 
