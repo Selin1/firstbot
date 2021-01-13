@@ -3,7 +3,7 @@ import asyncio
 import requests
 from urllib import parse
 from urllib.request import urlopen
-from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup 
 from discord.utils import get
 import os
 
@@ -21,7 +21,7 @@ async def on_ready():
 async def on_message(message):
   baseurl = "https://lostark.game.onstove.com/Profile/Character" + "/" + parse.quote(message.content[2:])
   html = urlopen(baseurl).read()
-  bsObject = bs(html, "html.parser")
+  bsObject = BeautifulSoup(html, "html.parser")
   job = bsObject.select("img")[0]['alt']
   checkserver = bsObject.select_one('.profile-character-info__server').get_text()
   server = checkserver[1:]
